@@ -1,0 +1,18 @@
+# Never track secrets or credentials
+*.secret
+*.secrets
+*.pem
+*.pfx
+*.key
+credentials.json
+*.publishsettings
+config/lab-settings.json
+
+# Local tool caches
+.azure/
+*.log
+*.tmp
+
+# Windows noise
+Thumbs.db
+Desktop.ini
