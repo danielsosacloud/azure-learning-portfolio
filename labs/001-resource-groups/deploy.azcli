@@ -1,0 +1,22 @@
+# 1. Sign in
+az login
+
+# 2. Variables
+RG_NAME="rg-az104-lab002"
+LOCATION="eastus"
+VNET_NAME="vnet-az104-lab002"
+SUBNET_NAME="snet-workloads"
+
+# 3. Create the resource group
+az group create --name $RG_NAME --location $LOCATION
+
+# 4. Create the virtual network and subnet
+az network vnet create \
+	--resource-group $RG_NAME \
+	--name $VNET_NAME \
+	--address-prefix 10.10.0.0/16 \
+	--subnet-name $SUBNET_NAME \
+	--subnet-prefix 10.10.1.0/24
+
+# 5. Verify the virtual network in a readable table
+az network vnet show --resource-group $RG_NAME --name $VNET_NAME --output table
